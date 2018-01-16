@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_cycle_de_vie"
+        android:title="@string/home_cycle_de_vie"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_permission"
+        android:title="@string/home_permissions"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_deconnexion"
+        android:title="@string/home_deconnexion"
+        app:showAsAction="never" />
+
+</menu>
