@@ -30,7 +30,7 @@ import fr.isen.galiay.androidtoolbox.bdd.AsyncResponse;
 import fr.isen.galiay.androidtoolbox.bdd.GetAllUsersRequest;
 import fr.isen.galiay.androidtoolbox.bdd.User;
 
-public class SauvegardeActivity extends AppCompatActivity implements AsyncResponse {
+public class SauvegardeActivity extends AppCompatActivity {
     EditText prenomEdit = null;
     EditText nomEdit = null;
     EditText dateNaissanceEdit = null;
@@ -47,19 +47,19 @@ public class SauvegardeActivity extends AppCompatActivity implements AsyncRespon
         dateNaissanceEdit = findViewById(R.id.date_naissance);
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "database-name").build();
         new AddUserRequest().execute();
-        new GetAllUsersRequest().execute();
+        new GetAllUsersRequest(new AsyncResponse() {
+            @Override
+            public void processFinish(List<User> users) {
+                StringBuilder display = new StringBuilder();
+
+                for (User user : users) {
+                    display.append(user.getNom()).append(" ").append(user.getPrenom()).append(" ").append(user.getDateNaissance()).append("\n");
+                }
+
+                json.setText(display.toString());
+            }
+        }).execute();
         // writeJsonToLayout();
-    }
-
-    @Override
-    public void processFinish(List<User> users) {
-        StringBuilder display = new StringBuilder();
-
-        for (User user : users) {
-            display.append(user.getNom()).append(" ").append(user.getPrenom()).append(" ").append(user.getDateNaissance()).append("\n");
-        }
-
-        json.setText(display.toString());
     }
 
     public void Formulaire(View view) {

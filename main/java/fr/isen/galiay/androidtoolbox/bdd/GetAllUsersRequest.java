@@ -9,6 +9,10 @@ import static fr.isen.galiay.androidtoolbox.SauvegardeActivity.*;
 public class GetAllUsersRequest extends AsyncTask<Void, Void, List<User>> {
     AsyncResponse delegate = null;
 
+    public GetAllUsersRequest(AsyncResponse delegate) {
+        this.delegate = delegate;
+    }
+
     @Override
     protected List<User> doInBackground(Void... voids) {
         return db.userDAO().getAll();
