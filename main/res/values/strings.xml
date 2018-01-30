@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidToolBox</string>
+    <string name="app_name">AndroidToolBoxGaliayRomain</string>
 
     <string name="login_connexion">Connexion</string>
     <string name="login_auth">Identifiant</string>
@@ -10,7 +10,7 @@
     <string name="home_cycle_de_vie">Cycle de vie</string>
     <string name="home_sauvegarde">Sauvegarde</string>
     <string name="home_permissions">Permissions</string>
-    <string name="home_WebService">WebService</string>
+    <string name="home_web_service">WebService</string>
     <string name="home_deconnexion">Deconnexion</string>
 
     <string name="sauvegarde_prenom">Prénom</string>
@@ -18,5 +18,12 @@
     <string name="sauvegarde_date_naissance">Date de naissance</string>
     <string name="sauvegarde_valider">VALIDER</string>
     <string name="sauvegarde_titre">Information</string>
+    <string name="sauvegarde_json">Par JSON</string>
+    <string name="sauvegarde_bdd">Par BDD</string>
+
+    <string name="todo">TODO</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

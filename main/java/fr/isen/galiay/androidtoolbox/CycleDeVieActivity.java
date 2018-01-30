@@ -19,6 +19,7 @@ public class CycleDeVieActivity extends AppCompatActivity {
         textView.setText("Cycle de Vie");
     }
 
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_cycle_de_vie, menu);
         return true;
@@ -30,6 +31,7 @@ public class CycleDeVieActivity extends AppCompatActivity {
         Intent goToLogin = new Intent(getApplicationContext(), LoginActivity.class);
         Intent goToSauvegarde = new Intent(getApplicationContext(), SauvegardeActivity.class);
         Intent goToPermissions = new Intent(getApplicationContext(), PermissionsActivity.class);
+        Intent goToWebService = new Intent(getApplicationContext(), WebServiceActivity.class);
 
         switch (item.getItemId()) {
             case R.id.action_deconnexion:
@@ -42,6 +44,9 @@ public class CycleDeVieActivity extends AppCompatActivity {
                 return true;
             case R.id.action_permission :
                 startActivity(goToPermissions);
+                return true;
+            case R.id.action_web_service :
+                startActivity(goToWebService);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

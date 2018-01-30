@@ -3,48 +3,48 @@ package fr.isen.galiay.androidtoolbox;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
-public class HomeActivity extends AppCompatActivity {
-    TextView bonjour;
+import java.util.List;
+
+import fr.isen.galiay.androidtoolbox.webService.AsyncResponse;
+import fr.isen.galiay.androidtoolbox.webService.MyAdapter;
+import fr.isen.galiay.androidtoolbox.webService.WebServiceTask;
+import fr.isen.galiay.androidtoolbox.webService.results;
+
+public class WebServiceActivity extends AppCompatActivity {
+    private RecyclerView mRecyclerView;
+    public static List<results> listUsers;
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
-        String identifiant = getIntent().getStringExtra("identifiant");
-        bonjour = findViewById(R.id.bonjour);
-        bonjour.setText("Bonjour " + identifiant);
+        setContentView(R.layout.web_service);
+        context = WebServiceActivity.this;
+        mRecyclerView = findViewById(R.id.listUser);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        getUsers();
     }
 
-    public void goToCycleDeVie(View view) {
-        Intent goToCycleDeVie = new Intent(getApplicationContext(), CycleDeVieActivity.class);
-        startActivity(goToCycleDeVie);
-    }
-
-    public void goToSauvegarde(View view) {
-        Intent goToSauvegarde = new Intent(getApplicationContext(), SauvegardeActivity.class);
-        startActivity(goToSauvegarde);
-    }
-
-    public void goToPermissions(View view) {
-        Intent goToPermissions = new Intent(getApplicationContext(), PermissionsActivity.class);
-        startActivity(goToPermissions);
-    }
-
-    public void goToWebService(View v) {
-        Intent goToWebService = new Intent(getApplicationContext(), WebServiceActivity.class);
-        startActivity(goToWebService);
+    private void getUsers() {
+        new WebServiceTask(new AsyncResponse() {
+            @Override
+            public void processFinish(List<results> user) {
+                listUsers = user;
+                mRecyclerView.setAdapter(new MyAdapter());
+            }
+        }).execute();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_home, menu);
+        getMenuInflater().inflate(R.menu.menu_webservice, menu);
         return true;
     }
 
@@ -55,7 +55,6 @@ public class HomeActivity extends AppCompatActivity {
         Intent goToCycleDeVie = new Intent(getApplicationContext(), CycleDeVieActivity.class);
         Intent goToSauvegarde = new Intent(getApplicationContext(), SauvegardeActivity.class);
         Intent goToPermissions = new Intent(getApplicationContext(), PermissionsActivity.class);
-        Intent goToWebService = new Intent(getApplicationContext(), WebServiceActivity.class);
 
         switch (item.getItemId()) {
             case R.id.action_deconnexion:
@@ -71,9 +70,6 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             case R.id.action_permission :
                 startActivity(goToPermissions);
-                return true;
-            case R.id.action_web_service :
-                startActivity(goToWebService);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

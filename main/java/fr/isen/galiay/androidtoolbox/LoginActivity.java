@@ -12,13 +12,13 @@ import android.widget.Toast;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText identifiantEdit = null;
-    EditText passwordEdit = null;
+    EditText identifiantEdit;
+    EditText passwordEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
         super.onCreate(savedInstanceState);
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
         setContentView(R.layout.login);
         identifiantEdit = findViewById(R.id.auth);
         passwordEdit = findViewById(R.id.pwd);

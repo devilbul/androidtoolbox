@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,143 +10,114 @@
         android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="75dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06"
         app:srcCompat="@drawable/yncrea" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/bonjour"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
+        android:layout_marginTop="40dp"
         android:text="@string/home_bonjour"
         android:textColor="@color/colorTextGrey"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/buttonCycleDeVie"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginEnd="68dp"
         android:background="@drawable/message"
         android:onClick="goToCycleDeVie"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.302"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.432" />
+        app:layout_constraintEnd_toStartOf="@+id/buttonSauvegarde"
+        app:layout_constraintTop_toTopOf="@+id/buttonSauvegarde" />
 
     <TextView
-        android:id="@+id/textViewCycleDeVie"
+        android:id="@+id/cycleDeVie"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/home_cycle_de_vie"
         android:textColor="@color/colorTextGrey"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.287"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.523" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonCycleDeVie"
+        app:layout_constraintHorizontal_bias="0.681"
+        app:layout_constraintStart_toStartOf="@+id/buttonCycleDeVie"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCycleDeVie" />
 
     <Button
         android:id="@+id/buttonSauvegarde"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="188dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginTop="68dp"
         android:background="@drawable/sd"
         android:onClick="goToSauvegarde"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.30"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.432" />
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/bonjour" />
 
     <TextView
-        android:id="@+id/textViewSauvegarde"
+        android:id="@+id/sauvegarde"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginTop="8dp"
         android:text="@string/home_sauvegarde"
         android:textColor="@color/colorTextGrey"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.71"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.525" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonSauvegarde"
+        app:layout_constraintStart_toStartOf="@+id/buttonSauvegarde"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSauvegarde" />
 
     <Button
         android:id="@+id/buttonPermissions"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginTop="72dp"
         android:background="@drawable/telephone"
         android:onClick="goToPermissions"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.30"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonCycleDeVie"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCycleDeVie" />
 
     <TextView
-        android:id="@+id/textViewPermissions"
+        android:id="@+id/permissions"
         android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/home_permissions"
         android:textColor="@color/colorTextGrey"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.293"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonPermissions"
+        app:layout_constraintStart_toStartOf="@+id/buttonPermissions"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPermissions" />
 
     <Button
         android:id="@+id/buttonWebService"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="188dp"
+        android:layout_marginStart="68dp"
         android:background="@drawable/telecharger"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.30"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.725" />
-
+        android:onClick="goToWebService"
+        app:layout_constraintStart_toEndOf="@+id/buttonPermissions"
+        app:layout_constraintTop_toTopOf="@+id/buttonPermissions" />
 
     <TextView
-        android:id="@+id/textViewWebService"
+        android:id="@+id/webService"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/home_WebService"
+        android:layout_marginTop="8dp"
+        android:text="@string/home_web_service"
         android:textColor="@color/colorTextGrey"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.71"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.80" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonWebService"
+        app:layout_constraintStart_toStartOf="@+id/buttonWebService"
+        app:layout_constraintTop_toBottomOf="@+id/buttonWebService" />
 
 </android.support.constraint.ConstraintLayout>

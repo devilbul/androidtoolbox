@@ -1,0 +1,2 @@
+partie V :
+    b) porblème de permissions lors de la création de l'activity, pour charger l'image qui avait était sélectionnée en dernière
