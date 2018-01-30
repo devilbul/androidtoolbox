@@ -39,9 +39,9 @@
             android:name=".SauvegardeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PermissionsActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".WebServiceActivity"></activity>
+            android:name=".PermissionsActivity" />
+        <activity
+            android:name=".WebServiceActivity" />
     </application>
 
 </manifest>

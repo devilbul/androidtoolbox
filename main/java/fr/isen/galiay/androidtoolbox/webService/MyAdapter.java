@@ -18,7 +18,6 @@ import fr.isen.galiay.androidtoolbox.WebServiceActivity;
 import fr.isen.galiay.androidtoolbox.picasso.CircleTransform;
 
 import static fr.isen.galiay.androidtoolbox.WebServiceActivity.listUsers;
-import static fr.isen.galiay.androidtoolbox.util.Util.toFirstLetterUpperCase;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private int nb = 25;
@@ -35,7 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         View view = inflater.inflate(R.layout.list_item_user, parent, false);
 
         for (int i = 0; i < nb; i++)
-            characters.add(Pair.create(toFirstLetterUpperCase(listUsers.get(i).getName().getFirst()) + " " + listUsers.get(i).getName().getLast(), listUsers.get(i)));
+            characters.add(Pair.create(listUsers.get(i).getName().getFirst() + " " + listUsers.get(i).getName().getLast(), listUsers.get(i)));
 
         return new MyViewHolder(view);
     }
@@ -52,11 +51,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         private TextView adresse;
         private TextView email;
 
-        private Pair<String, results> currentPair;
-
         public MyViewHolder(final View itemView) {
             super(itemView);
-
             photo = itemView.findViewById(R.id.photo);
             nom = itemView.findViewById(R.id.nom);
             adresse = itemView.findViewById(R.id.adresse);
@@ -64,14 +60,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
 
         public void display(Pair<String, results> pair) {
-            currentPair = pair;
             nom.setText(pair.first);
-
             Picasso.with(WebServiceActivity.context)
                     .load(pair.second.getPicture().getLarge())
                     .transform(new CircleTransform())
                     .into(photo);
-
             String adresseBuilder = pair.second.getLocation().getStreet() + " " + pair.second.getLocation().getCity();
             adresse.setText(adresseBuilder);
             email.setText(pair.second.getEmail());
