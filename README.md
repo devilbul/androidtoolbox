@@ -77,3 +77,52 @@ il a donc fallu mettre en place des **AsyncTask**, afin de résoudre ces erreurs
 **a.** aucune difficulté
 
 première fois que je récupère ses information
+
+**b.** problème de permissions lors de la création de l'activity, pour charger l'image qui avait était sélectionnée en dernière
+
+**c.**
+**d.** un peu de temps passé sur la compréhension des curseurs, afin de bien sélectioner les contacts
+
+pour les API >= 23, pour les permissions, il faut demander au priopiétaire du téléphone, la permission d'accèder aux contacts
+
+puis j'ai eu un petit problème de redondance pour les numéros des contacts, peut-être du aux différents méthodes de stockage 
+
+**e.** première méthode : LocationManager + LocationProvider
+    problème, avec l'api 26
+    
+    
+   deuxième méthode : fused location service
+    succes
+    
+   ```java
+   mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+   ```
+   
+**f.** aucun problème
+
+petit amélioration des demandes de permissions :
+
+s'il faut demander les 2 permissions (`READ_CONTACTS`, `ACCES_COARSE_LOCATION`), alors je n'affiche qu'une seule fois la pop-up, 
+mais avec 2 onglets
+   
+**g.** pas eu le temps, presque 3h manquer à cause d'un rdv client pour notre **projet technique de 2nd semestre**
+
+### __Partie VI : Utilisation des WebServices__
+
+**a.** aucun problème
+
+**b.** réalisation d'un xml, qui va par la suite, être utilisé comme item dans une recycleView
+
+**c.** HttpUrlConnection => deprecated
+
+**d.** faire cette requête dans une asynctask
+
+ou utiliser une librairie, qui va tout gérer pour nous
+
+**e.** beaucoup de temps pour comprendre GSON
+
+**f.** récupération d'une classe qui override transform de Picasso, afin de faire un cercle
+
+**g.** modification de la requête, pour avoir une liste
+
+**h.** aucun problème
